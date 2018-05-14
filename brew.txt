@@ -1,0 +1,8 @@
+watch
+hh
+htop
+tmux
+jq
+diff-so-fancy
+bash
+source-highlight
