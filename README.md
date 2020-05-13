@@ -1,13 +1,18 @@
-# Bash Profile
-
+# Bash Profile (GNOME)
 ```bash
 echo "source $PWD/.bash_profile" >> ~/.bash_profile
 ln -s $PWD/.config $HOME/.config
 ln -s $PWD/.gitconfig $HOME/.gitconfig
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
 ln -s $PWD/.vimrc $HOME/.vimrc
+ln -s $PWD/.alacritty.yml $HOME/.config/alacritty/alacritty.yml
 ```
 
+# Alacritty
+```bash
+sudo add-apt-repository ppa:mmstick76/alacritty
+sudo apt install alacritty
+```
 
 ## VIM
 ```bash
@@ -30,6 +35,9 @@ mkdir $HOME/ad-hoc
 export PATH=$PATH:$HOME/ad-hoc
 wget -O $HOME/ad-hoc https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod +x $HOME/ad-hoc/diff-so-fancy
+
+
+
 
 
 

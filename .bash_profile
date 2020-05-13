@@ -1,14 +1,5 @@
 #!/bin/bash
-##NEED TO INSTALL SUBLIMETEXT3, GOLANG
-
-##--GOLANG - sets paths 
-export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
-
-##--SUBLIMETEXT3
-#ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-export EDITOR='subl -w'
-
+export EDITOR='vim'
 
 ##--OTHER
 alias checkcert='openssl s_client -connect "$1":443 | openssl x509 -text -noout'
