@@ -14,12 +14,20 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
+set ttymouse=sgr
+"
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-set cmdheight=2
-set updatetime=50
 
 call plug#begin('~/.vim/plugged')
 
@@ -42,6 +50,7 @@ endif
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let mapleader = " "
+
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
