@@ -1,5 +1,4 @@
-#Bash Profile
-This assumes you have brew installed and have set /etc/brashprof.conf
+# Bash Profile
 
 ```bash
 echo "source $PWD/.bash_profile" >> ~/.bash_profile
