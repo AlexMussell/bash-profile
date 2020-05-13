@@ -1,20 +1,59 @@
-" syntax highlighing
-:syntax on
-" show line numbers
-:set number
-" set minimum line number width to 3
-:set numberwidth=3
-" show line under line cursor is on
-:set cursorline
-" set the line highlight colour to clear
-:hi cursorline cterm=none
-" set the line number for the current cursor line to red (this can only be done by having current line highlighted)
-:hi cursorlinenr ctermfg=red
-" jump to search results whilst typing
-:set incsearch
-" ignore case whilst searching unless a capital is in the search string
-:set smartcase
-" use indentation of previous line when making a new line
-:set autoindent
-" allow using undo even after closing a file
+syntax on
+
+set hidden
+set noerrorbells
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nu
+set nowrap
+set smartcase
+set noswapfile
+set nobackup
 set undodir=~/.vim/undodir
+set undofile
+set incsearch
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+set cmdheight=2
+set updatetime=50
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'ycm-core/YouCompleteMe'
+Plug 'morhetz/gruvbox'
+Plug 'jremmen/vim-ripgrep'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-utils/vim-man'
+Plug 'git@github.com:kien/ctrlp.vim.git'
+Plug 'mbbill/undotree'
+
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let mapleader = " "
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+
+let g:ctrlp_use_caching = 0
+
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>ps :Rg<SPACE>
+nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>- :vertical resize -5<CR>

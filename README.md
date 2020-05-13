@@ -1,12 +1,29 @@
 #Bash Profile
 This assumes you have brew installed and have set /etc/brashprof.conf
 
-```shell
+```bash
 echo "source $PWD/.bash_profile" >> ~/.bash_profile
 ln -s $PWD/.config $HOME/.config
 ln -s $PWD/.gitconfig $HOME/.gitconfig
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
+ln -s $PWD/.vimrc $HOME/.vimrc
+```
+
+
+## VIM
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 mkdir -p ~/.vim/undodir
+
+vim ~/.vimrc
+:PlugInstall
+
+sudo apt install build-essential cmake vim python3-dev
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+```
 
 ## diff-so-fancy  Ubuntu
 sudo apt-get install wget
@@ -16,14 +33,14 @@ wget -O $HOME/ad-hoc https://raw.githubusercontent.com/so-fancy/diff-so-fancy/ma
 chmod +x $HOME/ad-hoc/diff-so-fancy
 
 
-ln -s $PWD/.vimrc $HOME/.vimrc
-ln -sf $PWD/sublime-text-3/Preferences.sublime-settings "$HOME/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+
 cat brew.txt | xargs brew install
 ```
 
 diff-so-fancy: https://github.com/so-fancy/diff-so-fancy
 
 Switch your default shell to the version of bash installed by brew (as pre-installed version on mac is out of date).
+
 ```shell
 sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
