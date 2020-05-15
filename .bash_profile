@@ -8,6 +8,10 @@ alias refresh="source ~/.bash_profile"
 alias grep='grep --color'
 alias watch='watch --color'
 
+# start in tmux session to not be a scrub
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
 
 # -p: suffix directories with `/`
 if [ "$(uname -s)" == "Darwin" ]; then
