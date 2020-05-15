@@ -21,7 +21,7 @@ mkdir -p ~/.vim/undodir
 
 cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --all
-vim -c 'PluginInstall'
+vim -c 'PlugInstall'
 
 mkdir $ADHOC
 

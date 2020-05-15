@@ -5,15 +5,6 @@
 ./ubuntu.sh
 ```
 
-```bash
-echo "source $PWD/.bash_profile" >> ~/.bash_profile
-ln -s $PWD/.config $HOME/.config
-ln -s $PWD/.gitconfig $HOME/.gitconfig
-ln -s $PWD/.tmux.conf $HOME/.tmux.conf
-ln -s $PWD/.vimrc $HOME/.vimrc
-ln -s $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
-```
-
 ## VIM
 ```bash
 vim ~/.vimrc
