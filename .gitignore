@@ -2,10 +2,3 @@
 
 ### Linux ###
 *~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-# End of https://www.gitignore.io/api/osx,linux
-
-.config/gcloud
-sublime-text-3/*
-!sublime-text-3/Preferences.sublime-settings

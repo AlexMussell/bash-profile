@@ -23,7 +23,6 @@ if [ "$(uname -s)" == "Darwin" ]; then
 fi
 
 
-#user:/<path> (*gitbranch*)
 function getGitBranch {
     local branchName="$(git branch 2>/dev/null | grep '^*' | colrm 1 2)"
     if [[ ! -z $branchName ]]; then
@@ -119,24 +118,6 @@ bind 'set completion-ignore-case on'
 shopt -s checkwinsize
 # display suggestions for ambiguous patterns rather than just bell
 bind "set show-all-if-ambiguous on"
-# bind `hstr` to ctrl+r if installed
-if [ ! -z "$(which hh)" ] && [[ $- =~ .*i.* ]]; then
-  # enable colour mode for hstr
-  export HH_CONFIG=hicolor
-  bind '"\C-r": "\C-a hh \C-j"'
-fi
-# set terminal to colour mode
-export TERM=xterm-256color
-#export force_color_prompt=yes
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-export EDITOR=vim
-
-# when using up and down arrows, only search through commands matching command entered so far
-# e.g. grep<up><up> will search through previous grep commands
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-
 
 # OSX specific
 if [ "$(uname -s)" == "Darwin" ]; then
