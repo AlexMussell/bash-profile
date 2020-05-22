@@ -29,15 +29,20 @@ set shortmess+=c
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
-Plug 'ycm-core/YouCompleteMe'
 Plug 'morhetz/gruvbox'
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
-Plug 'git@github.com:kien/ctrlp.vim.git'
 Plug 'mbbill/undotree'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 call plug#end()
 

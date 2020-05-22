@@ -7,11 +7,9 @@ alias path='echo $PATH | tr ":" "\n" | nl'
 alias refresh="source ~/.bash_profile"
 alias grep='grep --color'
 alias watch='watch --color'
+alias hh=hstr
 
-# start in tmux session to not be a scrub
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+bind '"\C-r": "\C-a hstr -- \C-j"'
 
 # -p: suffix directories with `/`
 if [ "$(uname -s)" == "Darwin" ]; then
@@ -47,10 +45,10 @@ function addToPromptCommand {
   fi
 }
 
-ITERM_SESSION_ID="${ITERM_SESSION_ID:-false}"
-if [ $ITERM_SESSION_ID ]; then
-      addToPromptCommand 'echo -ne "\033];${PWD##*/}\007"'
-fi
+# ITERM_SESSION_ID="${ITERM_SESSION_ID:-false}"
+# if [ $ITERM_SESSION_ID ]; then
+#       addToPromptCommand 'echo -ne "\033];${PWD##*/}\007"'
+# fi
 
 
 ##--HISTORY
